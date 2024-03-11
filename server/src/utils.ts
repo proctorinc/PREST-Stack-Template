@@ -1,0 +1,11 @@
+// Generate OTP generates a random string of 6 digits for a one time password
+export function generateOTP() {
+  // Declare a digits variable
+  // which stores all digits
+  const digits = "0123456789";
+  let OTP = "";
+  for (let i = 0; i < 6; i++) {
+    OTP += digits[Math.floor(Math.random() * 10)];
+  }
+  return OTP;
+}

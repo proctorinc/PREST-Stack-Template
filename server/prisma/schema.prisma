@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id        String      @id @default(uuid())
+    name      String
+    color     String      @default("blue")
+    email     String?     @unique
+    role      Role        @default(USER)
+    createdAt DateTime    @default(now())
+    enabled   Boolean     @default(false)
+    tokens    AuthToken[]
+}
+
+model AuthToken {
+    id             String   @id @default(uuid())
+    createdAt      DateTime @default(now())
+    expirationDate DateTime @default(dbgenerated("NOW() + interval '5 minutes'"))
+    value          String   @unique
+    isValid        Boolean  @default(true)
+    user           User     @relation(fields: [userId], references: [id])
+    userId         String
+}
+
+enum Role {
+    GUEST
+    USER
+    ADMIN
+}
