@@ -21,4 +21,5 @@ Event-driven library for real-time web applications. It enables real-time, bi-di
 ## Tailwind CSS [https://tailwindcss.com/]
 
 Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.
-# prest-stack-template
+
+# dynamic-analyzer

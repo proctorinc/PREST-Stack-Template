@@ -1,5 +1,5 @@
 {
-  "name": "prest-stack-template-server",
+  "name": "dynamic-analyzer-server",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
